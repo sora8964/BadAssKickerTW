@@ -39,7 +39,7 @@ function videoPlayerLoadFile(file){
 
     fileName = file.name;
     filePath = file.path;
-    fileDateTime = parseSJCamFilename(fileName);
+    fileDateTime = parseFilename(fileName);
 
     videoPlayer.src = URL.createObjectURL(file);
     videoPlayer.currentTime = 0; // Start from the beginning
@@ -93,14 +93,13 @@ document.getElementById('trimVideo').addEventListener('submit', function(event) 
         trimVideoData["licensePlate"] && 
         trimVideoData["violationDetail"] && 
         startTime && 
-        violationTime && 
         endTime && 
         filePath
         )){
         return false;
     }
 
-    let violationTimeString=timeObjectTo14Digit(violationTime);
+    let violationTimeString=violationTime ? timeObjectTo14Digit(violationTime) : timeObjectTo14Digit(startTime);
 
     let destFilename=violationTimeString+"_"+trimVideoData["licensePlate"]+"_"+trimVideoData["violationDetail"]+".mp4";
 
