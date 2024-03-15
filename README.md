@@ -1,0 +1,2 @@
+# BadAssKickerTW
+基於Electron和FFMpeg的行車記錄器影片剪輯界面
