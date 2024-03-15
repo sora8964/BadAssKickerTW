@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' blob:; script-src 'self'"  />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>檢舉神器</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>    
+    <div id="topLeftInfo"></div>
+    
+    <div id="topRightInfo">
+        <div id="nowPlayingDatetime"></div>
+        <div id="startTimeDisplay"></div>
+        <div id="violationTimeDisplay"></div>
+        <div id="endTimeDisplay"></div>
+    </div>
+    
+    <div id="main">
+        <div id="videoContainer">
+          <video id="videoPlayer" controls poster="./assets/video-background.svg"></video>
+        </div>
+    
+        <div id="controlPanel">
+        <form id="trimVideo">
+            <button type="button" id="setStartTimeButton">開始時間</button>
+            <button type="button" id="setViolationTimeButton">違規時間</button>
+            <button type="button" id="setEndTimeButton">結束時間</button>
+            <input id="licensePlate" type="text" placeholder="車牌號碼" name="licensePlate">
+            <input id="violationDetail" type="text" placeholder="違規事項" name="violationDetail">
+            <input type="submit" value="剪輯">
+        </form>
+        </div>
+    </div>
+
+    <input type="file" id="fileDialog">
+
+    <script src="./renderer.js"></script>
+    <script src="./dateFormatting.js"></script>
+    <script src="./dragAndDrop.js"></script>
+  </body>
+</html>
