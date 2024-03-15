@@ -1,2 +1,2 @@
 # BadAssKickerTW
-基於Electron和FFMpeg的行車記錄器影片剪輯界面
+基於Electron和FFMpeg的行車記錄器影片剪輯界面，公路三寶殺手，目前只支援SJCAM檔案命名格式
