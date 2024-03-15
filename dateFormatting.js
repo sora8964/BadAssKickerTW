@@ -27,6 +27,9 @@ function parseFilename(fileName){
         return parseSJCamFilename(fileName);
     } else if(/^REC_\d{6}-\d{6}-\d{6}F\.TS$/.test(fileName)){
         return parseMy150CamFilename(fileName);
+    } else {
+        alert("不支援的檔案名稱Pattern");
+        return false;
     }
 }
 
