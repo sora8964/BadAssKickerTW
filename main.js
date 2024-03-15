@@ -19,10 +19,12 @@ const saveConfig = () => {
 
 const createWindow = () => {
     win = new BrowserWindow({
+        width: 1600,
+        height: 900,
         show: false,
         webPreferences: { preload: path.join(__dirname, 'preload.js')}
     });
-    win.maximize();
+    /*win.maximize();*/
     win.show();    
     win.loadFile('index.html');
 }
@@ -135,6 +137,7 @@ app.whenReady().then(() => {
         /*label: 'View',*/
         label: "檔案",
         submenu: [
+            {label: "開啟舊檔", accelerator: process.platform === 'darwin' ? 'command+o' : 'ctrl+o', click: async () => {win.send('openFile');}}, { type: 'separator' },
             { role: 'reload' },{ role: 'forceReload' },{ role: 'toggleDevTools' },
             /*{ type: 'separator' },{ role: 'resetZoom' },{ role: 'zoomIn' },{ role: 'zoomOut' },*/
             { type: 'separator' },{ role: 'togglefullscreen' }

@@ -32,12 +32,14 @@ fileDialog.addEventListener('change', (event) => {
 });
 
 function videoPlayerLoadFile(file){
+    document.getElementById("licensePlate").value="";
+    document.getElementById("violationDetail").value="";
     nowPlayingDateTime = startTime = violationTime = endTime = null;
     updateButtonTimeDisplay();
 
     fileName = file.name;
-    fileDateTime = parseSJCamFilename(fileName);
     filePath = file.path;
+    fileDateTime = parseSJCamFilename(fileName);
 
     videoPlayer.src = URL.createObjectURL(file);
     videoPlayer.currentTime = 0; // Start from the beginning
@@ -123,3 +125,4 @@ document.getElementById('trimVideo').addEventListener('submit', function(event) 
     const response = await window.versions.ping()
     console.log(response) // prints out 'pong'
 })*/
+

@@ -1,9 +1,5 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
-contextBridge.exposeInMainWorld('setOutputDirectory', 
-  () => ipcRenderer.invoke('setOutputDirectory')
-)
-
 contextBridge.exposeInMainWorld('ffmpeg', {
   convert: (message) => ipcRenderer.invoke('convert', message)
 })
@@ -34,8 +30,6 @@ ipcRenderer.on('error', (event, errMsg) => {
   alert(errMsg);
 });
 
-ipcRenderer.on('setOutputDirectory', (event, newOutputDirectory) => {
-  console.log('setOutputDirectory: ', newOutputDirectory[0]);
-  document.getElementById("outputDirectory").value=newOutputDirectory[0];
-  document.getElementById("firstPageOutputDirectory").innerText=newOutputDirectory[0];
+ipcRenderer.on('openFile', (event) => {
+  document.getElementById("fileDialog").click();
 });
